@@ -4,7 +4,7 @@ import re
 
 df = pd.read_csv('imdb.csv', encoding='ISO-8859-1')
 
-supp = pd.read_csv('money.csv', encoding='ISO-8859-1')
+supp = pd.read_csv('money_df.csv', encoding='ISO-8859-1')
 #making corresponding column names the same
 supp.rename(columns={'Release Date': 'release_date', 'Movie': 'title', 'Production Budget': 'budget','Domestic Gross': 'usa_gross', 'Worldwide Gross': 'cum_ww_gross'}, inplace=True)
 
