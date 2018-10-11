@@ -1,6 +1,6 @@
 # Welcome to my 'Project Luther' repo!   
 
-In this project at Metis, I used web scraping with BeautifulSoup and Selenium to gather information on films from IMDB. Then, I tested linear regression and decision tree models to try and predict the proportion of revenue movies get from the USA versus the rest of the world.   
+For this project at Metis, I used web scraping with BeautifulSoup and Selenium to gather information on films from IMDB. Then, I tested linear regression and decision tree models to try and predict the proportion of revenue movies get from the USA versus the rest of the world.   
 
 In this repo, I've uploaded my code, the data I used, and the presentation I gave at Metis on this project.  
   
