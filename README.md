@@ -1,6 +1,6 @@
 # Welcome to my 'Project Luther' repo!   
 
-In this project at Metis, I used web scraping with BeautifulSoup and Selenium to gather information on films from IMDB. Then, I tested linear regression and decision tree models to try and predict the proportion of revenue movies get from the USA versus the rest of the world.   
+For this project at Metis, I used web scraping with BeautifulSoup and Selenium to gather information on films from IMDB. Then, I tested linear regression and decision tree models to try and predict the proportion of revenue movies get from the USA versus the rest of the world.   
 
 In this repo, I've uploaded my code, the data I used, and the presentation I gave at Metis on this project.  
   
@@ -14,12 +14,13 @@ Blog Post:
 * df.csv - cleaned data for modeling
 * imdb.csv - raw IMDB data
 * imdb.pkl - raw IMDB data in pickled format for ease of use
-* money.csv - supplementary data on budgets and box office grosses
+* money_df.csv - supplementary data on budgets and box office grosses from The Numbers
   
 ### Web Scraping and Data Cleaning
 * scraper.py - scraper used to gather data from each movie
 * selenium_link_scraper.py - scraper used to gather IMDB movie codes
 * cleaning.py - cleaning of raw IMDB data
+* moneyscraping.py - scraper used to get supplementary budget and revenue information from The Numbers
   
 ### Model Testing
 * gbm_model.ipynb - building of gradient-boosting model
