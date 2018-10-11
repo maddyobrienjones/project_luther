@@ -14,12 +14,13 @@ Blog Post:
 * df.csv - cleaned data for modeling
 * imdb.csv - raw IMDB data
 * imdb.pkl - raw IMDB data in pickled format for ease of use
-* money.csv - supplementary data on budgets and box office grosses
+* money_df.csv - supplementary data on budgets and box office grosses from The Numbers
   
 ### Web Scraping and Data Cleaning
 * scraper.py - scraper used to gather data from each movie
 * selenium_link_scraper.py - scraper used to gather IMDB movie codes
 * cleaning.py - cleaning of raw IMDB data
+* moneyscraping.py - scraper used to get supplementary budget and revenue information from The Numbers
   
 ### Model Testing
 * gbm_model.ipynb - building of gradient-boosting model
