@@ -28,3 +28,6 @@ Blog Post:
 * model_test.ipynb - miscellaneous model testing
 * poly_model.ipynb - building of polynomial model
 * trees_model.ipynb - building of trees models
+
+### Presentation
+* luther.pdf - presentation in PDF format
