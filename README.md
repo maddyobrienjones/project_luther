@@ -17,12 +17,14 @@ Blog Post:
 * money_df.csv - supplementary data on budgets and box office grosses from The Numbers
   
 ### Web Scraping and Data Cleaning
-* scraper.py - scraper used to gather data from each movie
-* selenium_link_scraper.py - scraper used to gather IMDB movie codes
 * cleaning.py - cleaning of raw IMDB data
 * moneyscraping.py - scraper used to get supplementary budget and revenue information from The Numbers
+* scraper.py - scraper used to gather data from each movie
+* selenium_link_scraper.py - scraper used to gather IMDB movie codes
   
 ### Model Testing
+* final_models.ipynb - cleaned notebook of models tested
 * gbm_model.ipynb - building of gradient-boosting model
 * model_test.ipynb - miscellaneous model testing
 * poly_model.ipynb - building of polynomial model
+* trees_model.ipynb - building of trees models
