@@ -6,7 +6,7 @@ In this repo, I've uploaded my code, the data I used, and the presentation I gav
   
 Blog Post:  
   
-## Here is a summary of of each document in the repo:   
+## Repo Contents:   
 
 ### Data
 * [codes.csv](codes.csv) - list of IMDB movie codes
