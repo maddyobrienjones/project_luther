@@ -4,7 +4,7 @@ For this project at Metis, I used web scraping with BeautifulSoup and Selenium t
 
 In this repo, I've uploaded my code, the data I used, and the presentation I gave at Metis on this project.  
   
-Blog Post:  
+Read my blog post [here]!*
   
 ## Repo Contents:   
 
@@ -31,3 +31,8 @@ Blog Post:
 
 ### Presentation
 * [luther.pdf](luther.pdf) - presentation in PDF format
+
+*work in progress
+
+
+[here]: https://medium.com/@obrienjonesm2013/predicting-us-share-of-box-office-revenue-with-web-scraping-and-regression-9aa82bca4cfd
