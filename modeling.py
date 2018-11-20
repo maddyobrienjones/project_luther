@@ -1,3 +1,6 @@
+#### ALL NOTES ######
+
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,22 +19,66 @@ def RMSE(actual, predicted):
 
 df = pd.read_csv('df.csv')
 
-#fit model on train
-#score on val
-#score on test
-#scatter on train
-#hist on train
-#scatter on val
-#hist on val
-#scatter on test
-#hist on test
-#RMSE on train
-#RMSE on val
-#RMSE on test
-#coefficients
+features = df.loc[:,['budget', 'ratings_count', 'runtime',
+       'usa_gross', 'user_rating', 'year', 'Australia', 'Canada', 'China',
+       'France', 'Germany', 'Hong Kong', 'Japan', 'Spain', 'UK', 'USA',
+       'other_country', 'G', 'NC-17', 'Not Rated', 'PG', 'PG-13', 'R',
+       'Antoine Fuqua', 'Brett Ratner', 'Chris Columbus', 'Clint Eastwood',
+       'David Fincher', 'Gore Verbinski', 'Ivan Reitman', 'Joel Schumacher',
+       'M. Night Shyamalan', 'Michael Bay', 'Paul W.S. Anderson',
+       'Ridley Scott', 'Robert Zemeckis', 'Roland Emmerich', 'Ron Howard',
+       'Steven Soderbergh', 'Steven Spielberg', 'Tim Burton', 'Tony Scott',
+       'other_director', 'Action', 'Adventure', 'Animation', 'Biography',
+       'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy',
+       'Film-Noir', 'History', 'Horror', 'Music', 'Musical', 'Mystery',
+       'Romance', 'Sci-Fi', 'Sport', 'Thriller', 'War', 'Western']]
 
+#regression results with most important coefficients next to it
+poly2:
+[('x22', 56410893170.02425), #R
+ ('x23', 57400208779.05499), #Antoine Fuqua
+ ('x7', 97335180722.3987), #Canada
+ ('x12', 119338564567.8518), #Japan
+ ('x33', 122657001454.85493), #Paul Anderson
+ ('x20', 124959552434.52222), #PG
+ ('x24', 156851795419.54974), #Brett Ratner
+ ('x27', 177352154143.64835), #David Fincher
+ ('x25', 206475586603.38055)] #Chris Columbus
 
+poly3:
+[('x0 x55 x62', 0.5164559124344671), #budget,horror,thriller
+ ('x2 x5 x45', 0.5259398649730822), #runtime,year,animation
+ ('x1^2 x47', 0.5297921490601942), #ratings_count,comedy
+ ('x1 x2', 0.556184623900111), #ratings_count,runtime
+ ('x0 x1 x2', 0.6006022270903557), #budget,ratings_count,runtime
+ ('x1 x4 x50', 0.6383262904025876), #ratings_count,user_rating,drama
+ ('x1 x5 x21', 0.673338961408061), #ratings_count,year,pg13
+ ('x1 x47 x59', 0.7487205487317052), #ratings_count,comedy,romance
+ ('x2 x4 x43', 0.7545912242678078)] #runtime,usa_gross,action
 
+ridge:
+[('x5 x52 x59', 0.028158423242938782), #year,fantasy,romance
+ ('x3 x48 x59', 0.029220053532367108), #usa_gross,crime,romance
+ ('x0^2', 0.02995333199664951), #budget
+ ('x2 x4^2', 0.030384522383269084), #runtime,user_rating
+ ('x3 x48 x60', 0.030565917337806506), #usa_gross,crime,scifi
+ ('x2 x5', 0.03064893601012375), #runtime,year
+ ('x5 x51 x59', 0.036664788591461384), #year,family,romance
+ ('x1 x4 x48', 0.0376308016651948), #ratings_count,user_rating,crime
+ ('x2^2 x59', 0.039216973303203714)] #runtime,romance
+
+lasso:
+[('x28^2 x48', 0.00011846288961174029), #Gore Verbinski,crime
+ ('x17 x64^2', 0.00012829868244750557), #g,western
+ ('x56 x57^2', 0.00014276119462426837), #music,musical
+ ('x9^2 x48', 0.00016961073819779095), #france,crime
+ ('x29^2 x52', 0.00020092189139530694), #Ivan Reitman,fantasy
+ ('x19 x49^2', 0.00022941706097944644), #not rated,documentary
+ ('x37^2 x47', 0.00023965337562426484),#Ron Howard,comedy
+ ('x18^2 x62', 0.00025986100886940354), #NC17,thriller
+ ('x17^3', 0.0003029060426698482)] #G
+
+####### NOTES ##########
 #Linear/Polynomial regressions
 #linear regression: train: .435 vs. val: .373
 #all residuals normally distributed
@@ -143,61 +190,3 @@ df = pd.read_csv('df.csv')
 #-val residuals normal
 #-RMSE: .178 vs. .189
 
-features = df.loc[:,['budget', 'ratings_count', 'runtime',
-       'usa_gross', 'user_rating', 'year', 'Australia', 'Canada', 'China',
-       'France', 'Germany', 'Hong Kong', 'Japan', 'Spain', 'UK', 'USA',
-       'other_country', 'G', 'NC-17', 'Not Rated', 'PG', 'PG-13', 'R',
-       'Antoine Fuqua', 'Brett Ratner', 'Chris Columbus', 'Clint Eastwood',
-       'David Fincher', 'Gore Verbinski', 'Ivan Reitman', 'Joel Schumacher',
-       'M. Night Shyamalan', 'Michael Bay', 'Paul W.S. Anderson',
-       'Ridley Scott', 'Robert Zemeckis', 'Roland Emmerich', 'Ron Howard',
-       'Steven Soderbergh', 'Steven Spielberg', 'Tim Burton', 'Tony Scott',
-       'other_director', 'Action', 'Adventure', 'Animation', 'Biography',
-       'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy',
-       'Film-Noir', 'History', 'Horror', 'Music', 'Musical', 'Mystery',
-       'Romance', 'Sci-Fi', 'Sport', 'Thriller', 'War', 'Western']]
-
-
-poly2:
-[('x22', 56410893170.02425), R
- ('x23', 57400208779.05499), Antoine Fuqua
- ('x7', 97335180722.3987), Canada
- ('x12', 119338564567.8518), Japan
- ('x33', 122657001454.85493), Paul Anderson
- ('x20', 124959552434.52222), PG
- ('x24', 156851795419.54974), Brett Ratner
- ('x27', 177352154143.64835), David Fincher
- ('x25', 206475586603.38055)] Chris Columbus
-
-poly3:
-[('x0 x55 x62', 0.5164559124344671), budget,horror,thriller
- ('x2 x5 x45', 0.5259398649730822), runtime,year,animation
- ('x1^2 x47', 0.5297921490601942),ratings_count,comedy
- ('x1 x2', 0.556184623900111),ratings_count,runtime
- ('x0 x1 x2', 0.6006022270903557),budget,ratings_count,runtime
- ('x1 x4 x50', 0.6383262904025876),ratings_count,user_rating,drama
- ('x1 x5 x21', 0.673338961408061),ratings_count,year,pg13
- ('x1 x47 x59', 0.7487205487317052), ratings_count,comedy,romance
- ('x2 x4 x43', 0.7545912242678078)] runtime,usa_gross,action
-
-ridge:
-[('x5 x52 x59', 0.028158423242938782), year,fantasy,romance
- ('x3 x48 x59', 0.029220053532367108),usa_gross,crime,romance
- ('x0^2', 0.02995333199664951),budget
- ('x2 x4^2', 0.030384522383269084),runtime,user_rating
- ('x3 x48 x60', 0.030565917337806506),usa_gross,crime,scifi
- ('x2 x5', 0.03064893601012375),runtime,year
- ('x5 x51 x59', 0.036664788591461384),year,family,romance
- ('x1 x4 x48', 0.0376308016651948),ratings_count,user_rating,crime
- ('x2^2 x59', 0.039216973303203714)]runtime,romance
-
-lasso:
-[('x28^2 x48', 0.00011846288961174029), Gore Verbinski,crime
- ('x17 x64^2', 0.00012829868244750557), g,western
- ('x56 x57^2', 0.00014276119462426837),music,musical
- ('x9^2 x48', 0.00016961073819779095),france,crime
- ('x29^2 x52', 0.00020092189139530694),Ivan Reitman,fantasy
- ('x19 x49^2', 0.00022941706097944644),not rated,documentary
- ('x37^2 x47', 0.00023965337562426484),Ro Howard,comedy
- ('x18^2 x62', 0.00025986100886940354),NC17,thriller
- ('x17^3', 0.0003029060426698482)] G
