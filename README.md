@@ -27,7 +27,6 @@ Read my blog post [here]!*
 * [model_test.ipynb](model_test.ipynb) - miscellaneous model testing
 * [poly_model.ipynb](poly_model.ipynb) - building of polynomial model
 * [trees_model.ipynb](trees_model.ipynb) - building of trees models
-* [modeling.py](modeling.py) - modeling notes
 
 ### Presentation
 * [luther.pdf](luther.pdf) - presentation in PDF format
